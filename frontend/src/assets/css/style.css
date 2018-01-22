@@ -1,0 +1,19 @@
+.logo-well svg
+{
+  height: 40px;
+  margin-top: 5px;
+}
+
+.nodetext {
+  font-family: 'Alegreya Sans', sans-serif;
+  /*text-anchor: middle;*/
+  color: #fff;
+}
+
+.company {
+  fill: blueviolet;
+}
+
+.person {
+  fill: green;
+}

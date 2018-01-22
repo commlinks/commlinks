@@ -1,0 +1,4214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+                  targetNamespace="http://www.registryagency.bg/schemas/deedv2/Fields"
+                  xmlns="http://www.registryagency.bg/schemas/deedv2/Fields"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+				  elementFormDefault="qualified"
+				  >
+  <xs:simpleType name="FieldOperation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add">
+        <xs:annotation>
+          <xs:documentation>
+            Полето е добавено или по него е направена промяна.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Erase">
+        <xs:annotation>
+          <xs:documentation>
+            Полето е изтрито.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Current">
+        <xs:annotation>
+          <xs:documentation>
+            Полето е непроменено.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attributeGroup name="RecordCommonAttributes">
+    <xs:attribute name="RecordID" type="xs:int" use="required" />
+    <xs:attribute name="GroupID" type="xs:int" use="required" />
+    <xs:attribute name="RecordIncomingNumber" type="xs:string" use="required"></xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="FieldCommonAttributes">
+    <xs:attribute name="FieldIdent" type="xs:string"  use="required"></xs:attribute>
+    <xs:attribute name="FieldOperation" type="FieldOperation"  use="required"></xs:attribute>
+    <xs:attribute name="FieldEntryNumber" type="xs:string"  use="required"/>
+    <xs:attribute name="FieldActionDate" type="xs:dateTime" use="required"></xs:attribute>
+  </xs:attributeGroup>
+
+  <!-- Atom fields Start -->
+
+  <xs:element name="Subject" type="SubjectType">
+  </xs:element>
+  <xs:complexType name="SubjectType" >
+    <xs:complexContent>
+      <xs:extension base="PersonType"></xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="OutgoingNumberType">
+    <xs:sequence>
+      <xs:element name="IncomingNumber" type="xs:string" ></xs:element>
+      <xs:element name="OutgoingDate" type="xs:dateTime" nillable="true"></xs:element>
+      <xs:element name="DocNumber" type="xs:int" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Branches" type="BranchesType">
+  </xs:element>
+  <xs:complexType name="BranchesType">
+    <xs:sequence>
+      <xs:element name="Branch" type="BranchType" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BranchType">
+    <xs:sequence>
+      <xs:element name="FirmName" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="BranchCode" type="xs:string" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Address" type="AddressType">
+  </xs:element>
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="CountryID" nillable="true" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="CountryCode" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Country" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="IsForeign" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="DistrictID" nillable="true"  type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="DistrictEkatte" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="District" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Municipalityid" nillable="true"  type="xs:string"  minOccurs="1" maxOccurs="1" />
+      <xs:element name="MunicipalityEkatte" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Municipality" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="SettlementID" nillable="true"  type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="SettlementEKATTE" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Settlement" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="AreaID" nillable="true"  type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Area" type="xs:string" minOccurs="1" maxOccurs="1"  />
+      <xs:element name="AreaEkatte" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="PostCode" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="ForeignPlace" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="HousingEstate" type="xs:string"  minOccurs="1" maxOccurs="1" />
+      <xs:element name="Street" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="StreetNumber" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Block" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Entrance" type="xs:string"  minOccurs="1" maxOccurs="1" />
+      <xs:element name="Floor" type="xs:string"  minOccurs="1" maxOccurs="1"  />
+      <xs:element name="Apartment" type="xs:string" minOccurs="1" maxOccurs="1"  />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Person" type="PersonType">
+  </xs:element>
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element name="Indent" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="IndentType" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="CountryID" type="xs:long" minOccurs="1" maxOccurs="1" nillable="true"></xs:element>
+      <xs:element name="CountryName" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="CompetentAuthorityForRegistration" type="xs:string">
+    </xs:attribute>
+    <xs:attribute name="RegistrationNumber" type="xs:string">
+    </xs:attribute>
+    <xs:attribute name="IsForeignTraderText" type="xs:int">
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:element name="Price" type="PriceType">
+  </xs:element>
+  <xs:complexType name="PriceType">
+    <xs:sequence>
+      <xs:element name="Amount" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Units" type="xs:string" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Contacts" type="ContactsType">
+  </xs:element>
+  <xs:complexType name="ContactsType">
+    <xs:sequence>
+      <xs:element name="Phone" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Fax" type="xs:string" minOccurs="1"  maxOccurs="1" />
+      <xs:element name="EMail" type="xs:string" minOccurs="1" maxOccurs="1"  />
+      <xs:element name="URL" type="xs:string" minOccurs="1" maxOccurs="1"  />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="ActData" type="ActDataType">
+  </xs:element>
+  <xs:complexType name="ActDataType">
+    <xs:all>
+      <xs:element name="ActSeqID" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="CourtSeqID" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="CaseSeqID" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="CaseNumber" type="xs:string" minOccurs="1"  maxOccurs="1"/>
+      <xs:element name="CaseYear" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="ActDate" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="ActNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Type" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ID" type="xs:string" minOccurs="0" />
+            <xs:element name="Name" type="xs:string" minOccurs="0" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BankruptcyCourt" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Code" type="xs:string" minOccurs="0" />
+            <xs:element name="Name" type="xs:string" minOccurs="0" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Merit" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ID" type="xs:string" minOccurs="0" />
+            <xs:element name="FieldID" type="xs:string" minOccurs="0" nillable="true" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Execution" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ImmediateExecution" type="xs:string" minOccurs="0" />
+            <xs:element name="EffectiveDate" type="xs:string" minOccurs="0" nillable="true" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ProclaimMetod" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ID" type="xs:string" minOccurs="0" />
+            <xs:element name="Name" type="xs:string" minOccurs="0" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ComplaintTerm" minOccurs="0" maxOccurs="1" nillable="true" ></xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:element name="Petitioner" type="PersonType">
+  </xs:element>
+
+  <xs:element name="SenderType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ID" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Passport" type="PassportType">
+  </xs:element>
+  <xs:complexType name="PassportType">
+    <xs:sequence>
+      <xs:element name="Number" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="IssueDate" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="IssuedFrom" type="xs:string" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ActSenderTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Undefined">
+        <xs:annotation>
+          <xs:documentation>
+            Неопределено
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Officially">
+        <xs:annotation>
+          <xs:documentation>
+            Служебно
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PublicProsecutor">
+        <xs:annotation>
+          <xs:documentation>
+            По искане на прокурор
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InterestedPerson">
+        <xs:annotation>
+          <xs:documentation>
+            По искане на заинтересовано лице
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EuropeanEconomicInterestRepresenterTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Undefined">
+        <xs:annotation>
+          <xs:documentation>
+            Неопределено
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Regular">
+        <xs:annotation>
+          <xs:documentation>
+            Заинтересовано лице
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Liquidator">
+        <xs:annotation>
+          <xs:documentation>
+            Ликвидатор
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Trustee">
+        <xs:annotation>
+          <xs:documentation>
+            Синдик
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="MandateType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+        <xs:attribute name="MandateTypeText" type="xs:string"></xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="ForeignAuthority" type="ForeignAuthority">
+  </xs:element>
+  <xs:complexType name="ForeignAuthority">
+    <xs:sequence>
+      <xs:element name="CompetentAuthorityForRegistration" type="xs:string" minOccurs="1" />
+      <xs:element name="RegistrationNumber" type="xs:string" minOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="ForeignCompanyBaseData" type="ForeignCompanyBaseData">
+  </xs:element>
+  <xs:complexType name="ForeignCompanyBaseData" >
+    <xs:complexContent>
+      <xs:extension base="ForeignAuthority">
+        <xs:sequence>
+          <xs:element name="CompanyName" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <!-- Atom fields End -->
+
+  <xs:element name="ContestationAct" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SenderType" type="ActSenderTypeType"></xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="IncomingNumber" type="xs:string" />
+      <xs:attribute name="FromDate" type="xs:string" />
+      <xs:attribute name="CourtCode" type="xs:string" />
+      <xs:attribute name="OutgoingNumber" type="xs:string" />
+      <xs:attribute name="ActNumber" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ContinuingTradeActivity" >
+    <xs:complexType>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Continue" type="xs:string" />
+      <xs:attribute name="Restore" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FormOfTransforming701" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Influx" type="xs:string" />
+      <xs:attribute name="Fusion" type="xs:string" />
+      <xs:attribute name="Division" type="xs:string" />
+      <xs:attribute name="Separation" type="xs:string" />
+      <xs:attribute name="ChangeLegalForm" type="xs:string" />
+      <xs:attribute name="TransferringProperty" type="xs:string" />
+      <xs:attribute name="ConversionOfBulgarianEuropeanCompanyIntoBulgarianPLC" type="xs:string" />
+      <xs:attribute name="ConversionOfBulgarianPLCIntoBulgarianEuropeanCompany" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DistraintData" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="CourtLegalExecutor" type="xs:string" />
+      <xs:attribute name="CaseNumber" type="xs:string" />
+      <xs:attribute name="Court" type="xs:string" />
+      <xs:attribute name="LegalExecutor" type="xs:string" />
+      <xs:attribute name="ADV" type="xs:string" />
+      <xs:attribute name="IncomingAmount" type="xs:string" />
+      <xs:attribute name="RemainingAmount" type="xs:string" />
+      <xs:attribute name="EnterprisesLikeCombination" type="xs:string" />
+      <xs:attribute name="SeparateAssets" type="xs:string" />
+      <xs:attribute name="AssetsOfCompany" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SecuredClaimSubject" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="GivingMoney" type="xs:string" />
+      <xs:attribute name="GivingThing" type="xs:string" />
+      <xs:attribute name="DoingActions" type="xs:string" />
+      <xs:attribute name="NotDoingActions" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Procurators" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Procurator" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Passport" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupervisingBoard" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SupervisingBoardMandate" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType"></xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Supervisor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubjectOfActivity" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="IsBank" type="xs:boolean"> </xs:attribute>
+          <xs:attribute name="IsBankText" type="xs:string"> </xs:attribute>
+          <xs:attribute name="IsInsurer" type="xs:boolean"> </xs:attribute>
+          <xs:attribute name="IsInsurerText" type="xs:string"> </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="ReOpenProceedings" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="0"  />
+        <xs:element ref="ActData" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ReopeningReson" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - ReOpenProceedings: 905-->
+  <xs:element name="ReOpenProceedingsSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="0"  />
+        <xs:element ref="ActData" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ReopeningReson" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReOpenProceedingsThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="0"  />
+        <xs:element ref="ActData" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ReopeningReson" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - ReOpenProceedings: 905-->
+  
+  <xs:element name="InsolvencyDate" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <!--NEW CODE - InsolvencyData: 902-->
+  <xs:element name="InsolvencyData" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="Date" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsolvencyDataSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="Date" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsolvencyDataThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="Date" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - InsolvencyData: 902-->
+  
+  <xs:element name="StopOfLiquidation" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="StoppingOfLiquidation" type="xs:string" />
+      <xs:attribute name="CessationOfLiquidation" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DepozitarDistraintRemove" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Court" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element name="CaseNo" type="xs:string" minOccurs="1" maxOccurs="1"  />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgePropertyPrice" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BranchIdentifier" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DateOfRenewingDistraint" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgeDDIdentifier" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DistraintIdentifier" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForfeitCompanyIdentifier" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddemptionOfTraderEraseForeignTrader" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberNationalRegister" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Company" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>  
+  <xs:element name="NumberNationalRegister1b" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreIdentifier" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreCompany"  >
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreTransliteration" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreSeat" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreSeatForCorrespondence" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreRepresentatives" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OffshoreRepresentative" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreWayOfRepresentation" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="jointly" type="xs:string" />
+          <xs:attribute name="severally" type="xs:string" />
+          <xs:attribute name="otherWay" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OffshoreSpecialConditions" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CircumstanceArticle4" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="IsArticle1" type="xs:boolean"></xs:attribute>
+          <xs:attribute name="IsArticle2" type="xs:boolean"></xs:attribute>
+          <xs:attribute name="IsArticle3" type="xs:boolean"></xs:attribute>
+          <xs:attribute name="IsArticle4" type="xs:boolean"></xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualOwners" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ActualOwner" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EraseActualOwner">
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoardOfDirectors" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="BoardOfDirectorsMandate" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType"></xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Director" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubjectOfActivityNKID" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="codeNkid" type="xs:string" />
+      <xs:attribute name="textNkid" type="xs:string" />
+      <xs:attribute name="idNkid" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoratoryRate" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+        <xs:element name="DateOfCalculation" type="xs:string"></xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CessationOfTrade" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DiscontinuanceOfForeignTrader" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="FinishingOfLiquidation" type="xs:string" />
+      <xs:attribute name="StopOfLiquidation" type="xs:string" />
+      <xs:attribute name="ContinuationOfActivity" type="xs:string" />
+      <xs:attribute name="BeginOfLiquidation" type="xs:string" />
+      <xs:attribute name="StopForeignerTrader" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopExecutionOverProperty" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RaiseDistraint" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Court" type="xs:string" />
+      <xs:attribute name="CaseNumber" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestoringManagementRight" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EntryDate" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SecuredClaimAmount" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AmountDue" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="Units" type="xs:string" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlimitedLiabilityPartners" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UnlimitedLiabilityPartner" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlimitedLiabilityPartnersEUIE" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UnlimitedLiabilityPartnerEUIE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element name="NoObligationsEUIEText" type="xs:int" minOccurs="1" maxOccurs="1"  />
+              <xs:element name="DateOfAcceptanceEUIE" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DivisionsOfEuropeanUnification" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DivisionOfEuropeanUnification" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="ForeignCompanyBaseData" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoardOfManagers2" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ManagerMandate2" minOccurs="0" maxOccurs="1" >
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType"></xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BoardManager2" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddemptionOfTrader" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="GeneralSeizure" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - GeneralSeizure: 908-->
+  <xs:element name="GeneralSeizureSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeneralSeizureThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - GeneralSeizure: 908-->
+  <xs:element name="Size409" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Descriptions" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DescriptionCount" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Description406" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Pledgors" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Pledgor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpecialManager" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OtherCircumstances114" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutUnderParticularSupervision" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Date">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string"></xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Conditions">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string"></xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BranchClosure" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Company" type="xs:string" />
+      <xs:attribute name="Seat" type="xs:string" />
+      <xs:attribute name="SubUIC" type="xs:string" />
+      <xs:attribute name="closed" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimitedLiabilityPartners" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LimitedLiabilityPartner" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ControllingBoard" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ControllingBoardMandate" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType"></xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ControllingBoardPerson" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="RestrictDebtorOrderPower" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - RestrictDebtorOrderPower: 907-->
+  <xs:element name="RestrictDebtorOrderPowerSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestrictDebtorOrderPowerThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - RestrictDebtorOrderPower: 907-->
+  <!--PROGAMER1-->
+  <xs:element name="HoldProceedings" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - HoldProceedings: 904-->
+  <xs:element name="HoldProceedingsSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HoldProceedingsThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - HoldProceedings: 904-->
+  <xs:element name="VolumeOfRepresentationPower541" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Interest" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Size307" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="QuantityDue" type="xs:string" />
+      <xs:attribute name="Units" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgeRenewDate" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Depozitar" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DepozitarDistraintDetails" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="Court" type="xs:string" minOccurs="0" maxOccurs="1" />
+              <xs:element name="CaseNo" type="xs:string" minOccurs="0"  maxOccurs="1" />
+              <xs:element name="PartValue" type="xs:string" minOccurs="0"  maxOccurs="1" />
+              <xs:element name="PartCount" type="xs:string" minOccurs="0"  maxOccurs="1" />
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="ReasonCourt" type="xs:string" />
+            <xs:attribute name="ReasonCourtExecuter" type="xs:string" />
+            <xs:attribute name="ReasonADV" type="xs:string" />
+            <xs:attribute name="IncomingDistraint" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DepozitarDistraint" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DepozitarReminderDistraint" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1"  />
+              <xs:element name="Currency" type="xs:string" minOccurs="1"  maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="ReminderDistraint" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgeExecutionClaim" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OtherCircumstances110" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BranchManagers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="BranchManager" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Passport" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SepcialPowers" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SpecialPower" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ProcuratorName" type="xs:string" minOccurs="1" maxOccurs="1"  />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="rightToAlienate" type="xs:string" />
+            <xs:attribute name="rightToBurden" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Owner" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WayOfManagement" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="jointly" type="xs:string" />
+          <xs:attribute name="severally" type="xs:string" />
+          <xs:attribute name="otherWay" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PhysicalPersonTrader" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Successors803" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Successor803" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="legalForm" type="xs:string" minOccurs="1" maxOccurs="1"  />
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReorganizeCoOperatives" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CoOperative" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Liquidators" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Liquidator" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Reason403" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="CourtLegalExecutor" type="xs:string" />
+      <xs:attribute name="CaseNumber" type="xs:string" />
+      <xs:attribute name="Court" type="xs:string" />
+      <xs:attribute name="LegalExecutor" type="xs:string" />
+      <xs:attribute name="ADV" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Distraints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Distraint" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EraseDistraint" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PropertyOverExecution" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="WholeCompany" type="xs:boolean" />
+      <xs:attribute name="PartOfCompany" type="xs:boolean" />
+      <xs:attribute name="AssetsOfCompany" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Reason" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="Date" type="xs:string" />
+          <xs:attribute name="Contract" type="xs:string" />
+          <xs:attribute name="CourtOrder" type="xs:string" />
+          <xs:attribute name="AdministrativAct" type="xs:string" />
+          <xs:attribute name="OtherSource" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModalityCondition" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SecuredClaimInterests" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VolumeOfRepresentationPower" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="TraverseOfRecoverPlan" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - DebtorBodies: 906a-->
+  <xs:element name="TraverseOfRecoverPlanSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraverseOfRecoverPlanThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - DebtorBodies: 906a-->
+  <!--PROGAMER1-->
+  <xs:element name="DebtorBodies" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - DebtorBodies: 901-->
+  <xs:element name="DebtorBodiesSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DebtorBodiesThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - DebtorBodies: 901-->
+  
+  <xs:element name="Representatives102" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Representative102" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopExecutionOverProperty410" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimitSubjectOfActivity101" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FobiddenDeals" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+        <xs:element name="ForbiddenActivity" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+        <xs:element name="FobiddenOperations" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Shares" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CredentialsForDifferentTypes" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SpecialConditionsForTransfer" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Share" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Type" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Count" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="NominalValue" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForeignTraders" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ForeignTraderRegistration" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="Name" type="xs:string" />
+            <xs:attribute name="LegalForm" type="xs:string" />
+            <xs:attribute name="Register" type="xs:string" />
+            <xs:attribute name="EntryNumber" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ForeignTraderCountry" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="Country" type="xs:string" />
+            <xs:attribute name="IsEUCountry" type="xs:string" />
+            <xs:attribute name="OtherCountr" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ForeignTrader" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ForeignTraderWayOfRepresentation" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+                <xs:attribute name="jointly" type="xs:string" />
+                <xs:attribute name="severally" type="xs:string" />
+                <xs:attribute name="otherWay" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AddemptionOfForeignTrader" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="CheckedText" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ForeignTradeStaticMambers" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcquisitionEnterprises" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AcquisitionEnterprise" minOccurs="0" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Partners218" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Partner218Part" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Count" type="xs:string" minOccurs="0"  />
+              <xs:element name="Value" type="xs:string" minOccurs="0"  />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Partner218" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="License108" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimitSubjectOfActivity106" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LimitInsuaranceActivity106" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="insuaranceType" type="xs:string" />
+            <xs:attribute name="forbiddanceOfNewContracts" type="xs:string" />
+            <xs:attribute name="forbiddanceToExtendContracts" type="xs:string" />
+            <xs:attribute name="forbiddanceToWidenContracts" type="xs:string" />
+            <xs:attribute name="fobiddenTill" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyBackDecision" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EraseProcura">
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PartialEraseDistraint">
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="Description3251" type="xs:string"></xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShareTransfers" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ShareTransfer" minOccurs="0" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OldOwner" type="SubjectType" minOccurs="0" maxOccurs="1"></xs:element>
+              <xs:element name="NewOwner" type="SubjectType" minOccurs="0" maxOccurs="1"></xs:element>
+              <xs:element name="ShareAmount" type="xs:string" minOccurs="0" maxOccurs="1"  />
+              <xs:element name="Date" type="xs:string" minOccurs="0" maxOccurs="1"  />
+              <xs:element name="OldOwnerCountryID" type="xs:long" nillable="true" minOccurs="0" maxOccurs="1" />
+              <xs:element name="OldOwnerCountryName" type="xs:string" minOccurs="0" maxOccurs="1"  />
+              <xs:element name="NewOwnerCountryID" type="xs:long" nillable="true" minOccurs="0" maxOccurs="1" />
+              <xs:element name="NewOwnerCountryName" type="xs:string" minOccurs="0" maxOccurs="1"  />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChairMan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WayOfRepresentation" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="jointly" type="xs:string" />
+          <xs:attribute name="severally" type="xs:string" />
+          <xs:attribute name="otherWay" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="SupervisionBody" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SupervisionBodyMember" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InductionDate" type="xs:string" />
+            <xs:attribute name="AcquittanseDate" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - SupervisionBody: 915-->
+  <xs:element name="SupervisionBodyFull" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SupervisionBodyMemberFull" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element name="EntryType" type="xs:string" minOccurs="1" maxOccurs="1"  />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InductionDate" type="xs:string" />
+            <xs:attribute name="AcquittanseDate" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupervisionBodyFullSecIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SupervisionBodyMemberFullSecIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element name="EntryType" type="xs:string" minOccurs="1" maxOccurs="1"  />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InductionDate" type="xs:string" />
+            <xs:attribute name="AcquittanseDate" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupervisionBodyFullThirdIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SupervisionBodyMemberFullThirdIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element name="EntryType" type="xs:string" minOccurs="1" maxOccurs="1"  />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InductionDate" type="xs:string" />
+            <xs:attribute name="AcquittanseDate" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - SupervisionBody: 915-->
+  <xs:element name="ReinstatementsDisallowPetition" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReinstatementDisallowPetition" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+              <xs:element ref="Petitioner" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="SenderType" minOccurs="1" maxOccurs="1" />
+              <xs:element name="InscribedAct" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <!--NEW CODE - ReinstatementsDisallowPetition: 911a-->
+  <xs:element name="ReinstatementsDisallowPetitionSecIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReinstatementDisallowPetitionSecIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+              <xs:element ref="Petitioner" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="SenderType" minOccurs="1" maxOccurs="1" />
+              <xs:element name="InscribedAct" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReinstatementsDisallowPetitionThirdIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReinstatementDisallowPetitionThirdIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+              <xs:element ref="Petitioner" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="SenderType" minOccurs="1" maxOccurs="1" />
+              <xs:element name="InscribedAct" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - ReinstatementsDisallowPetition: 911a-->
+  <xs:element name="FormOfTransforming801" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Influx" type="xs:string" />
+      <xs:attribute name="Fusion" type="xs:string" />
+      <xs:attribute name="Division" type="xs:string" />
+      <xs:attribute name="Separation" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TermsOfLiquidation" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="TermType" type="xs:string" ></xs:attribute>
+          <xs:attribute name="LiquidationProceedings" type="xs:boolean" ></xs:attribute>
+          <xs:attribute name="ChangeCircumstances" type="xs:boolean" ></xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Depositor" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="BIC" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="IBAN" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgeCreditors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PledgeCreditor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Suquestrators113" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Suquestrator113" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element name="AppointedTill" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BranchSubjectOfActivity" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BranchSeat" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddemptionOfTraderSeatChange" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="ForeignAuthority" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="IsTraderAddemptedText" type="xs:int"/>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SeatChange" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="ForeignAuthority" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Funds" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="euro" type="xs:string"> </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Representatives" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Representative" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TermOfExisting" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TermOfExistingEUIE" >
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="TermTypeEUIE" type="xs:string" />
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="DeclareBankrupt" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - OpenProccedings: 910-->
+  <xs:element name="DeclareBankruptSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeclareBankruptThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - OpenProccedings: 910-->
+  <!--PROGAMER1-->
+  <xs:element name="OpenProccedings" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - OpenProccedings: 901-->
+  <xs:element name="OpenProccedingsSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="RuleCheckBox" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenProccedingsThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="RuleCheckBox" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - OpenProccedings: 901-->
+  <xs:element name="Size404" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Description" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="PartOfCompany" type="xs:boolean"></xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BranchFirm" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SoleCapitalOwner" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Seat" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SeatForCorrespondence" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResumeOfLiquidation" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent  >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Interests" >
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopOfExecutionSize" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgeExecutionDepozitar" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="BIC" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="IBAN" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoardOfManagersSupporters" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="BoardOfManagersSupportersPerson" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Suquestrators109" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Suquestrator109" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element name="AppointedTill" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WayOfRepresentation43" >
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="jointly" type="xs:string" />
+          <xs:attribute name="severally" type="xs:string" />
+          <xs:attribute name="otherWay" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ControllingBoardSupporters" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ControllingBoardSupportersPerson" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignedManagers" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AssignedManager" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpecialConditions" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="IsConsortium" type="xs:boolean"></xs:attribute>
+          <xs:attribute name="IsHolding" type="xs:boolean"></xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="CashIn" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - CashIn: 909-->
+  <xs:element name="CashInSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CashInThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1"  maxOccurs="1" />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - CashIn: 909-->
+  <xs:element name="Branches704" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Branch704Subject" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BranchSubject" type="SubjectType" minOccurs="1" maxOccurs="1"></xs:element>
+              <!--<xs:element ref="BranchSubject" minOccurs="1" maxOccurs="1" />-->
+              <xs:element ref="Branches" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Successors703" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Successor703" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="legalForm" type="xs:string" minOccurs="1"  />
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Size323" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InterestAndDefaultForDelay" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Object306" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="ForGivingAmount" type="xs:string" />
+      <xs:attribute name="ForGive" type="xs:string" />
+      <xs:attribute name="ForDoingActivity" type="xs:string" />
+      <xs:attribute name="ForNotDoingActivity" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OtherCircumstances117" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MainActivityNKID" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="codeNkid" type="xs:string" />
+      <xs:attribute name="textNkid" type="xs:string" />
+      <xs:attribute name="idNkid" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Partners" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Partner" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="share" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Managers" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Manager" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="Reinstatements" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Reinstatement" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Petitioner" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="SenderType" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - Reinstatements: 911-->
+  <xs:element name="ReinstatementsSecIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReinstatementSecIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Petitioner" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="SenderType" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReinstatementsThirdIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReinstatementThirdIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"/>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Petitioner" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="SenderType" minOccurs="1" maxOccurs="1" />
+            </xs:all>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - Reinstatements: 911-->
+  <xs:element name="Branches804" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Branch804Subject" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BranchSubject" type="SubjectType" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Branches" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumberApplication" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="IncomingNumber" type="xs:string" />
+      <xs:attribute name="FromDate" type="xs:string" />
+      <xs:attribute name="CourtCode" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvitationForAppointingOfManager" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Term" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OtherCircumstances105" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Suquestrators104" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Suquestrator104" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element name="AppointedTill" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="License102" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DepositedFunds" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="euro" type="xs:string"> </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConcededEstateValue" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SharePaymentResponsibility" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="BoardOfManagers" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ManagerMandate" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType">
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BoardManager" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoardOfManagers3" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ManagerMandate3" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType">
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BoardManager3" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdministrativeBoard" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AdministrativeBoardMandate" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType">
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AdministrativeBody" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdministrativeBoardSupporters" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AdministrativeBoardSupporter" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeadingBoard" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LeadingBoardMandate" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType">
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Leader" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoardOfManagersSupporters2" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="BoardManagersSupporter2" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupervisingBoard2" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SupervisingBoardMandate2" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="MandateType">
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Supervisor2" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SupervisingBoardSupporters" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SupervisingBoardSupporter" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Representatives101" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Representative101" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EuropeanEconomicInterestGrouping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ForeignCompanyData" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompanyData" type="ForeignCompanyBaseData" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EUIEAddempted" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RepresentersWayOfManagement" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+                <xs:attribute name="jointly" type="xs:string" />
+                <xs:attribute name="severally" type="xs:string" />
+                <xs:attribute name="otherWay" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PowerOfLiquidators" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PowerOfTrustees" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent >
+              <xs:extension base="xs:string">
+                <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EuropeanEconomicInterestRepresenter" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RepresenterType" type="EuropeanEconomicInterestRepresenterTypes"></xs:element>
+              <xs:element name="RepresenterName" type="xs:string"></xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DiscontinuanceOfTheEUIE" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="StopOfLiquidation" type="xs:string" />
+          <xs:attribute name="ContinuationOfActivity" type="xs:string" />
+          <xs:attribute name="BeginOfLiquidation" type="xs:string" />
+          <xs:attribute name="StopEUIE" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsolvenciesOfEUIE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="InsolvencyOfEUIE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InsolvencyText" type="xs:string" />
+            <xs:attribute name="ActNumber" type="xs:string" />
+            <xs:attribute name="ActDate" type="xs:string" />
+            <xs:attribute name="JudicialCode" type="xs:string" />
+            <xs:attribute name="Decision759" type="xs:string" />
+            <xs:attribute name="Decision760" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EuropeanHoldingCompanysAsShareholders" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="EuropeanHoldingCompanyAsShareholder" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddemptionOfEUIE" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MinimumAmount" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="euro" type="xs:string"> </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WayOfEstablishingEuropeanCompany" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="fromacquisition" type="xs:string" />
+      <xs:attribute name="frommerge" type="xs:string" />
+      <xs:attribute name="fromholding" type="xs:string" />
+      <xs:attribute name="fromsubsidiary" type="xs:string" />
+      <xs:attribute name="fromconvert" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WayOfEstablishingEuropeanCooperativeSociety" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="throughInitialFormation" type="xs:string" />
+      <xs:attribute name="throughAcquisitionOrMerge" type="xs:string" />
+      <xs:attribute name="byConvertingCooperativeSocietyIntoEuropeanCooperativeSociety" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransformingCompanys2" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TransformingCompany2" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FormOfTransforming801a" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Influx801a" type="xs:string" />
+      <xs:attribute name="Fusion801a" type="xs:string" />
+      <xs:attribute name="ConversionToCoop" type="xs:string" />
+      <xs:attribute name="ConversionToEUCoop" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReorganizeCoOperatives2" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CoOperative2" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="0" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LegalForm" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Text" type="xs:string" />
+      <xs:attribute name="Code" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TermsOfPartnership" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+          <xs:attribute name="TermType" type="xs:string" />
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferringTypeOfTradeEnterprise" >
+    <xs:complexType>
+      <xs:attribute name="FullTransfer" type="xs:string"></xs:attribute>
+      <xs:attribute name="PartialTransfer" type="xs:string"></xs:attribute>
+      <xs:attribute name="TakeTransfer" type="xs:string"></xs:attribute>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferringEnterprise" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsolvenciesOfForeignTrader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="InsolvencyOfForeignTrader" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InsolvencyText" type="xs:string" />
+            <xs:attribute name="ActNumber" type="xs:string" />
+            <xs:attribute name="ActDate" type="xs:string" />
+            <xs:attribute name="JudicialCode" type="xs:string" />
+            <xs:attribute name="Decision759" type="xs:string" />
+            <xs:attribute name="Decision760" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Representative503" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManagerOfTradeEnterprise" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AtPawnCreditors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AtPawnCreditor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SecuredClaimReason" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Description207" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="ReasonDate" type="xs:string" minOccurs="1" maxOccurs="1"  />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Contract" type="xs:string" />
+      <xs:attribute name="CourtOrder" type="xs:string" />
+      <xs:attribute name="AdministrativeAct" type="xs:string" />
+      <xs:attribute name="OtherSource" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="StatementType">
+    <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+    <xs:attribute name="ActModeText" type="xs:string" />
+    <xs:attribute name="ActModeValue" type="xs:string" />
+    <xs:attribute name="Description" type="xs:string" />
+    <xs:attribute name="ActID" type="xs:string" />
+    <xs:attribute name="ActDate" type="xs:string" />
+    <xs:attribute name="ActYear" type="xs:string" />
+    <xs:attribute name="ActWithErasedPersonalData" type="xs:string" />
+  </xs:complexType>
+  <xs:element name="StatementsA" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementA" minOccurs="0" maxOccurs="unbounded" >
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsB" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementB" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsC" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementC" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsD" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementD" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsE" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsF" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementF" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsG" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementG" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsH" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementH" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsI" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementI" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsJ" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementJ" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsK" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementK" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsL" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementL" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsM" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementM" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsN" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementN" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsO" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementO" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsP" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementP" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsQ" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementQ" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsR" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementR" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsS" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementS" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsT" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementT" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsU" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementU" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsV" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementV" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsW" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementW" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsX" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementX" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsY" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementY" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsZ" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementZ" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAA" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAA" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAB" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAB" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAC" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAC" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAD" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAD" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAE" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAE" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAF" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAF" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAG" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAG" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAH" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAH" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAI" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAI" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAJ" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAJ" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAK" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAK" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAL" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAL" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatementsAM" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatementAM" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:extension base="StatementType"></xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TermsOfProtection" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LiftingDistraint" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="CourtLegalExecutor" type="xs:string" />
+      <xs:attribute name="CaseNumber" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Price312" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DebtorOverSecureClaims">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DebtorOverSecureClaim" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModalityDate" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimitSubjectOfActivity111" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ZPPCKOrganizationLimit" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="cessasionOfSales" type="xs:string" />
+            <xs:attribute name="cessasionOfDeals" type="xs:string" />
+            <xs:attribute name="cessatedTill" type="xs:string" />
+            <xs:attribute name="securities" type="xs:string"></xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageOrganizationAssets107" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="limited" type="xs:string" />
+      <xs:attribute name="forbidden" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersonConcerned" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+        <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="Quality" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClosureBranchOfForeignTrader" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransformingCompanys" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TransformingCompany" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PartOfClaimwhatIsSeek" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Circumstances" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgeAddemption" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="addempted" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgePropertyDescription" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SharesCount" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="Nominal" type="xs:string" minOccurs="1"  maxOccurs="1"  />
+        <xs:element name="Capital" type="xs:string" minOccurs="1" maxOccurs="1"   />
+        <xs:element name="CorporateShare" type="xs:boolean" minOccurs="1" maxOccurs="1"   />
+        <xs:element name="PartOfCorporateShare" type="xs:boolean" minOccurs="1" maxOccurs="1"   />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SecuredClaimDelayInterests" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SecuredClaimDebtors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SecuredClaimDebtor" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Subject" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Authorization" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Description103" type="xs:string" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="deprived" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NonMonetaryDeposits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NonMonetaryDeposit" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Description033" type="xs:string" minOccurs="1" maxOccurs="1"  />
+              <xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="OutgoingNumber" type="OutgoingNumberType" minOccurs="0" maxOccurs="1" ></xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UIC" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CompanyControl" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element name="BulstatDeed" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Deed" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Year" type="xs:string" minOccurs="1" maxOccurs="1" />
+              <xs:element name="CourtCode" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="uic" type="xs:string" />
+      <xs:attribute name="IsNew" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <!--PROGAMER1-->
+  <xs:element name="Trustees" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Trustee" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Status" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+                    <xs:element name="BPS_ID" type="xs:string" minOccurs="1" maxOccurs="1" nillable="true" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InductionDate" type="xs:string" />
+            <xs:attribute name="AcquittanseDate" type="xs:string" />
+            <xs:attribute name="WarrantyFund" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - SuspendProceedings: 912-->
+  <xs:element name="TrusteesSecIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TrusteeSecIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Status" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+                    <xs:element name="BPS_ID" type="xs:string" minOccurs="1" maxOccurs="1" nillable="true" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InductionDate" type="xs:string" />
+            <xs:attribute name="AcquittanseDate" type="xs:string" />
+            <xs:attribute name="WarrantyFund" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrusteesThirdIns" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TrusteeThirdIns" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Person" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Address" minOccurs="1" maxOccurs="1" />
+              <xs:element ref="Contacts" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Status" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+                    <xs:element name="BPS_ID" type="xs:string" minOccurs="1" maxOccurs="1" nillable="true" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+            <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+            <xs:attribute name="InductionDate" type="xs:string" />
+            <xs:attribute name="AcquittanseDate" type="xs:string" />
+            <xs:attribute name="WarrantyFund" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - SuspendProceedings: 912-->
+  <!--PROGAMER1-->
+  <xs:element name="SuspendProceedings" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SuspendReson" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--NEW CODE - SuspendProceedings: 906-->
+  <xs:element name="SuspendProceedingsSecIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SuspendReson" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendProceedingsThirdIns" >
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Title" type="xs:string" minOccurs="1" maxOccurs="1"  />
+        <xs:element ref="ActData" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SuspendReson" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <!--END NEW CODE - SuspendProceedings: 906-->
+  <xs:element name="StoppingEntry" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="IncomingNumber" type="xs:string" />
+      <xs:attribute name="JudicialCode" type="xs:string" />
+      <xs:attribute name="AppType" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Size310" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopOfExecutionProperty" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PledgeMoney" >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Price" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefusalOfLicense" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageOrganizationAssets112" >
+    <xs:complexType>
+      <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+      <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+      <xs:attribute name="cessationOfByingSecurities" type="xs:string" />
+      <xs:attribute name="cessationOfByingStakes" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HiddenNonMonetaryDeposit" nillable="true" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Transliteration" >
+    <xs:complexType>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attributeGroup ref="RecordCommonAttributes"></xs:attributeGroup>
+          <xs:attributeGroup ref="FieldCommonAttributes"></xs:attributeGroup>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

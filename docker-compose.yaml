@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  neo4j:
+    image: neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - ./neo4j-data:/data
+  #commerciallinks:
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile
+  #  image: commerciallinks:dev
+  #  ports:
+  #    - 80:80
+  #    - 443:443
+  #  depends_on:
+  #    - "neo4j"
+    #volumes:
+    #  - ./autocert:/app/autocert

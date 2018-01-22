@@ -1,0 +1,2540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DeedV2" targetNamespace="http://www.registryagency.bg/schemas/deedv2" xmlns="http://www.registryagency.bg/schemas/deedv2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:f="http://www.registryagency.bg/schemas/deedv2/Fields" elementFormDefault="qualified">
+	<xs:import namespace="http://www.registryagency.bg/schemas/deedv2/Fields"
+				 schemaLocation="FieldsSchema.xsd">
+	</xs:import>
+	<!-- Nomenclaturi -->
+	<xs:simpleType name="AppEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AA">
+			</xs:enumeration>
+			<xs:enumeration value="A1">
+			</xs:enumeration>
+			<xs:enumeration value="A2">
+			</xs:enumeration>
+			<xs:enumeration value="A3">
+			</xs:enumeration>
+			<xs:enumeration value="A4">
+			</xs:enumeration>
+			<xs:enumeration value="A5">
+			</xs:enumeration>
+			<xs:enumeration value="A6">
+			</xs:enumeration>
+			<xs:enumeration value="A7">
+			</xs:enumeration>
+			<xs:enumeration value="A8">
+			</xs:enumeration>
+			<xs:enumeration value="A9">
+			</xs:enumeration>
+      <xs:enumeration value="A10">
+      </xs:enumeration>
+      <xs:enumeration value="A11">
+      </xs:enumeration>
+      <xs:enumeration value="A12">
+      </xs:enumeration>
+      <xs:enumeration value="A13">
+      </xs:enumeration>
+      <xs:enumeration value="A14">
+      </xs:enumeration>
+			<xs:enumeration value="B1">
+			</xs:enumeration>
+			<xs:enumeration value="B2">
+			</xs:enumeration>
+			<xs:enumeration value="B3">
+			</xs:enumeration>
+			<xs:enumeration value="B4">
+			</xs:enumeration>
+			<xs:enumeration value="B5">
+			</xs:enumeration>
+			<xs:enumeration value="B6">
+			</xs:enumeration>
+      <xs:enumeration value="B7">
+      </xs:enumeration>
+			<xs:enumeration value="V1">
+			</xs:enumeration>
+			<xs:enumeration value="V21">
+			</xs:enumeration>
+			<xs:enumeration value="V22">
+			</xs:enumeration>
+			<xs:enumeration value="V23">
+			</xs:enumeration>
+      <xs:enumeration value="V24">
+      </xs:enumeration>
+			<xs:enumeration value="V31">
+			</xs:enumeration>
+			<xs:enumeration value="V32">
+			</xs:enumeration>
+      <xs:enumeration value="V33">
+      </xs:enumeration>
+			<xs:enumeration value="G1">
+			</xs:enumeration>
+      <xs:enumeration value="G2">
+      </xs:enumeration>
+      <xs:enumeration value="E1">
+      </xs:enumeration>
+      <xs:enumeration value="J1">
+      </xs:enumeration>
+			<xs:enumeration value="CourtAct">
+			</xs:enumeration>
+			<xs:enumeration value="BankruptcyAct">
+			</xs:enumeration>
+			<xs:enumeration value="RequestForCorrection">
+			</xs:enumeration>
+			<xs:enumeration value="InternalRequestForCorrection">
+			</xs:enumeration>
+      <xs:enumeration value="LiquidatorsAgreement">
+      </xs:enumeration>
+      <xs:enumeration value="CourtBranchReg">
+      </xs:enumeration>
+      <xs:enumeration value="OfficialUASRegistration">
+      </xs:enumeration>
+      <xs:enumeration value="AppointingChangeRequest">
+      </xs:enumeration>
+      <xs:enumeration value="AppointingDeclaration">
+      </xs:enumeration>
+      <xs:enumeration value="AppointingRequestForCorrection">
+      </xs:enumeration>
+      <xs:enumeration value="AnnouncementFromOtherRegister">
+      </xs:enumeration>
+      <xs:enumeration value="NotificationOfLackOfMeans">
+      </xs:enumeration>
+    </xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PackageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="New">
+				<xs:annotation>
+					<xs:documentation>
+									   Пакета е подаден за първоначална регистрация.
+								   </xs:documentation>
+							</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ForChange">
+				<xs:annotation>
+					<xs:documentation>
+									   Пакета е подаден за промяна.
+								   </xs:documentation>
+							</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Preregistration">
+				<xs:annotation>
+					<xs:documentation>
+									   Пререгистрация.
+								   </xs:documentation>
+							</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Transformation">
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SubUICTYPE">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MainCircumstances">
+				<xs:annotation>
+					<xs:documentation>
+						Основни данни
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B1_Procura">
+				<xs:annotation>
+					<xs:documentation>
+						Прокура
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B2_Branch">
+				<xs:annotation>
+					<xs:documentation>
+						Клонове
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B3_Pledge_DD">
+				<xs:annotation>
+					<xs:documentation>
+						Залог на дружествен дял
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B4_Pledge_TP">
+				<xs:annotation>
+					<xs:documentation>
+						Залог на търговско предприятие
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B5_Distraint_DD">
+				<xs:annotation>
+					<xs:documentation>
+						Запор върху дружествен дял
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B6_Liquidation">
+				<xs:annotation>
+					<xs:documentation>
+						Ликвидация
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+      <xs:enumeration value="B7_ActualOwner">
+        <xs:annotation>
+          <xs:documentation>
+            Действителни собственици
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+			<xs:enumeration value="V1_Transfer">
+				<xs:annotation>
+					<xs:documentation>
+						Прехвърляне
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="V2_Conversion">
+				<xs:annotation>
+					<xs:documentation>
+						Преобразуване
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="V3_Reorganization_K">
+				<xs:annotation>
+					<xs:documentation>
+						Преустройство
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bankruptcy">
+				<xs:annotation>
+					<xs:documentation>
+						Несъстоятелност
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Notes">
+				<xs:annotation>
+					<xs:documentation>
+						Забележки
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="G1_ActAnnouncement">
+				<xs:annotation>
+					<xs:documentation>
+						Обявени актове
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AdditionalCircumstances">
+				<xs:annotation>
+					<xs:documentation>
+						специален предмет на дейност
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<!--
+        MainCircumstances = 1,	//Основни данни
+        B1_Procura = 2,	//Прокура	
+        B2_Branch = 3,	//Клонове
+        B3_Pledge_DD = 4,	//Залог на дружествен дял
+        B4_Pledge_TP = 5, //Залог на търговско предприятие
+        B5_Distraint_DD = 6, //Запор върху дружествен дял
+        B6_Liquidation = 7, //Ликвидация
+        B7_ActualOwner = 500, //действителни собственици
+        V1_Transfer = 8, //Прехвърляне
+        V2_Conversion = 9, //Преобразуване
+        V3_Reorganization_K = 10,//Преустройство
+        Bankruptcy = 11, //Несъстоятелност
+        Notes = 12, //Забележки
+        G1_ActAnnouncement = 13, //Обявени актове
+        FirmReserve = 14,
+		AdditionalCircumstances = 15, //специален предмет на дейност
+				   
+				   -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LegalFormType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ET">
+				<xs:annotation>
+					<xs:documentation>
+						Едноличен търговец
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SD">
+				<xs:annotation>
+					<xs:documentation>
+						Събирателно дружество
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KD">
+				<xs:annotation>
+					<xs:documentation>
+						Командитно дружество
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OOD">
+				<xs:annotation>
+					<xs:documentation>
+						Дружество с ограничена отговорност
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EOOD">
+				<xs:annotation>
+					<xs:documentation>
+						Еднолично Дружество с ограничена отговорност
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AD">
+				<xs:annotation>
+					<xs:documentation>
+						Акционерно дружество
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EAD">
+				<xs:annotation>
+					<xs:documentation>
+						Еднолично Акционерно дружество
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IAD">
+				<xs:annotation>
+					<xs:documentation>
+						Акционерно дружество със специално инвестиционна цел
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IEAD">
+				<xs:annotation>
+					<xs:documentation>
+						Еднолично Акционерно дружество със специално инвестиционна цел
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KDA">
+				<xs:annotation>
+					<xs:documentation>
+						Командитно дружество с акции
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="K">
+				<xs:annotation>
+					<xs:documentation>
+						Кооперация
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KCHT">
+				<xs:annotation>
+					<xs:documentation>
+						Клон на чуждестранен търговец
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TPPD">
+				<xs:annotation>
+					<xs:documentation>
+						Търговец публично предприятие -държавно
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TPPO">
+				<xs:annotation>
+					<xs:documentation>
+						Търговец публично предприятие -общинско
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TPP">
+				<xs:annotation>
+					<xs:documentation>
+						Търговец публично предприятие да премехне и да се замени с горните две
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+      <xs:enumeration value="EUIE">
+        <xs:annotation>
+          <xs:documentation>
+            Европейско обединение по икономически интереси ЕОИИ
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DEUIE">
+        <xs:annotation>
+          <xs:documentation>
+            Поделение на ЕОИИ
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ED">
+        <xs:annotation>
+          <xs:documentation>
+            Европейско дружество
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EKD">
+        <xs:annotation>
+          <xs:documentation>
+            Европейско кооперативно дружество
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LEKD">
+        <xs:annotation>
+          <xs:documentation>
+            Европейско кооперативно дружество с ограничена отговорност
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CHD">
+        <xs:annotation>
+          <xs:documentation>
+            Дружество регистрирано в юрисдикция с преференциален данъчен режим
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!--PROGRAMER1-->
+      <xs:enumeration value="CHDF">
+        <xs:annotation>
+          <xs:documentation>
+            Чуждестранно дружество - физическо лице
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!--PROGRAMER1-->
+      <xs:enumeration value="CHDU">
+        <xs:annotation>
+          <xs:documentation>
+            Чуждестранно дружество - юридическо лице
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+			<xs:enumeration value="-1"></xs:enumeration>
+			<!--
+				  
+		ET		= 1, //	Едноличен търговец
+		SD		= 2, //	Събирателно дружество
+		KD		= 3, //	Командитно дружество
+		OOD		= 4, //	Дружество с ограничена отговорност
+		EOOD	= 10, //Еднолично Дружество с ограничена отговорност
+		AD		= 5, //	Акционерно дружество
+		EAD		= 11,// Еднолично Акционерно дружество
+		IAD		= 12,// Акционерно дружество със специално инвестиционна цел
+    IEAD    = 15,// Еднолично Акционерно дружество със специално инвестиционна цел
+		KDA		= 6, //	Командитно дружество с акции
+		K		= 7, //	Кооперация
+		KCHT	= 8, //	Клон на чуждестранен търговец
+		TPPD	= 13,//	Търговец публично предприятие -държавно
+		TPPO	= 14,//	Търговец публично предприятие -общинско
+		TPP		= 9,//	Търговец публично предприятие да премехне и да се замени с горните две
+	  EUIE    = 16,// Европейско обединение по икономически интереси ЕОИИ
+    DEUIE   = 17,// Поделение на ЕОИИ (Division Of EUIE)
+    ED      = 18,// Европейско дружество
+    EKD     = 19,// Европейско кооперативно дружество
+    LEKD    = 20 // Европейско кооперативно дружество с ограничена отговорност (Limited EKD)		 
+				 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DeedStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="N">
+				<xs:annotation>
+					<xs:documentation>
+						Нова
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="E">
+				<xs:annotation>
+					<xs:documentation>
+						Пререгистрирана фирма по Булстат
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="C">
+				<xs:annotation>
+					<xs:documentation>
+						Нова партида затворена
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="L">
+				<xs:annotation>
+					<xs:documentation>
+						Пререгистрирана фирма по Булстат затворена
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- End Nomenclaturi -->
+	<xs:complexType name="IncomingPackageInfoType">
+		<xs:sequence>
+			<xs:element name="Documents" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Document" type="DocumentType" maxOccurs="unbounded" minOccurs="0">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="IncomingNumber" type="xs:string" use="required">
+		</xs:attribute>
+		<xs:attribute name="IncomingGuid" type="xs:string" use="required">
+		</xs:attribute>
+		<xs:attribute name="PackageType" type="PackageType" use="required">
+		</xs:attribute>
+		<xs:attribute name="LeadingApp" type="AppEnum" use="required">
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="DocumentType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="DocGuid" use="required" type="xs:string">
+				</xs:attribute>
+				<xs:attribute name="DocumentURL" use="required" type="xs:string">
+				</xs:attribute>
+				<xs:attribute name="ApplicationType" type="AppEnum" use="required">
+				</xs:attribute>
+				<xs:attribute name="Description" type="xs:string" use="required">
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DeedType">
+		<xs:sequence>
+			<xs:element name="IncomingPackageInfo" type="IncomingPackageInfoType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="SubDeed" type="SubDeedType" minOccurs="0" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="DeedStatus" type="DeedStatusType" use="required" />
+		<xs:attribute name="CompanyName" type="xs:string" use="required" />
+		<xs:attribute name="GUID" type="xs:string" use="required" />
+		<xs:attribute name="UIC" type="xs:string" use="required" />
+		<xs:attribute name="LegalForm" type="LegalFormType" use="required" />
+	</xs:complexType>
+	<xs:complexType name="SubDeedType">
+		<xs:sequence>
+			<xs:element ref="f:UIC" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+      <xs:element ref="f:NumberNationalRegister" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00011
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:NumberNationalRegister1b" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00012
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+			<xs:element ref="f:Company" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00020
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:LegalForm" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Transliteration" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00040
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Seat" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:SeatForCorrespondence" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00051
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:SubjectOfActivity" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00060
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SubjectOfActivityNKID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00061
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Managers" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00070
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:AssignedManagers" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00071
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:WayOfManagement" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00080
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ChairMan" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00090
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Representatives" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00100
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Representatives101" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00101
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Representatives102" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00102
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:WayOfRepresentation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00110
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BoardOfDirectors" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00120
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:BoardOfManagers3" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00121
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:AdministrativeBoard" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00122
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:AdministrativeBoardSupporters" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00123
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:BoardOfManagers" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00130
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BoardOfManagersSupporters" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00131
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BoardOfManagers2" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00132
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:LeadingBoard" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00133
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:BoardOfManagersSupporters2" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00134
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:SupervisingBoard" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00140
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:SupervisingBoard2" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00142
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:SupervisingBoardSupporters" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00143
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:ControllingBoard" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00150
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ControllingBoardSupporters" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00151
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:TermsOfPartnership" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00160
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:TermOfExisting" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00161
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:TermOfExistingEUIE" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00162
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:SpecialConditions" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00170
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PhysicalPersonTrader" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00180
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Partners" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00190
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:UnlimitedLiabilityPartners" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00200
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:UnlimitedLiabilityPartnersEUIE" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00201
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:LimitedLiabilityPartners" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00210
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ForeignTraders" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00220
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:DiscontinuanceOfForeignTrader" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00221
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:InsolvenciesOfForeignTrader" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00222
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:EuropeanEconomicInterestGrouping" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00223
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:DiscontinuanceOfTheEUIE" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00224
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:InsolvenciesOfEUIE" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00225
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:SoleCapitalOwner" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00230
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Owner" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00231
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:EuropeanHoldingCompanysAsShareholders" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00232
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:ShareTransfers" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00240
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:HiddenNonMonetaryDeposit" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00241
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SharePaymentResponsibility" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00250
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ConcededEstateValue" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00251
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:CessationOfTrade" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00260
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:AddemptionOfTrader" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00270
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:AddemptionOfTraderSeatChange" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00271
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:AddemptionOfTraderEraseForeignTrader" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00273
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:ClosureBranchOfForeignTrader" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00280
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:AddemptionOfEUIE" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00281
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:PersonConcerned" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00290
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:EntryDate" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00291
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:TermsOfProtection" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00300
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Funds" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00310
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Shares" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00311
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:MinimumAmount" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00312
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:DepositedFunds" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00320
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:NonMonetaryDeposits" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:00330
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BuyBackDecision" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00340
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Procurators" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00410
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SepcialPowers" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00420
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:WayOfRepresentation43" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00430
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:EraseProcura" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00440
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:BranchSeat" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00510
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BranchFirm" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00511
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BranchIdentifier" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00512
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BranchSubjectOfActivity" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00520
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:MainActivityNKID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00521
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BranchManagers" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00530
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:VolumeOfRepresentationPower" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00540
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:VolumeOfRepresentationPower541" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00541
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:BranchClosure" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:00550
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:DivisionsOfEuropeanUnification" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00600
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:WayOfEstablishingEuropeanCompany" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00700
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:WayOfEstablishingEuropeanCooperativeSociety" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00701
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:SeatChange" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:00710
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:LimitSubjectOfActivity101" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:License102" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01020
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PutUnderParticularSupervision" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01021
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Authorization" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Suquestrators104" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01040
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:OtherCircumstances105" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:LimitSubjectOfActivity106" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01060
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ManageOrganizationAssets107" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01070
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:License108" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01080
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Suquestrators109" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01090
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:OtherCircumstances110" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01100
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:LimitSubjectOfActivity111" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01110
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ManageOrganizationAssets112" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01120
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Suquestrators113" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01130
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:OtherCircumstances114" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01140
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:RefusalOfLicense" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01150
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SpecialManager" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01160
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:OtherCircumstances117" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:01170
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:PledgeDDIdentifier" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:02000
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:Pledgors" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SecuredClaimDebtors" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgeCreditors" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SecuredClaimReason" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02070
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SecuredClaimSubject" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02080
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SecuredClaimAmount" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02090
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SecuredClaimInterests" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02100
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:SecuredClaimDelayInterests" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02110
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgeMoney" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02120
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgePropertyDescription" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02130
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgePropertyPrice" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02140
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ModalityDate" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02150
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ModalityCondition" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02160
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgeExecutionClaim" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02170
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Partners218" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02180
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgeExecutionDepozitar" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02190
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Depozitar" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02200
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:DepozitarDistraintRemove" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02210
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StopOfExecutionSize" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02220
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StopOfExecutionProperty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02230
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgeRenewDate" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02240
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PledgeAddemption" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:02250
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:ForfeitCompanyIdentifier" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:03000
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:DebtorOverSecureClaims" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:AtPawnCreditors" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Reason" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Object306" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03060
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Size307" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03070
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Interest" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03080
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:InterestAndDefaultForDelay" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03090
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Size310" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03100
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Description" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03110
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Price312" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03120
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Term" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03130
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Circumstances" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03140
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PartOfClaimwhatIsSeek" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03150
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:PropertyOverExecution" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03160
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Depositor" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03170
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:InvitationForAppointingOfManager" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03180
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ManagerOfTradeEnterprise" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03190
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:RestoringManagementRight" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03200
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:DistraintData" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03210
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:RaiseDistraint" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03220
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Size323" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03230
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StopExecutionOverProperty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03240
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:EraseDistraint" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:03250
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:PartialEraseDistraint" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:03251
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:DateOfRenewingDistraint" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:03260
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:DistraintIdentifier" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:04000
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:Distraints" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Reason403" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Size404" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04040
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:MoratoryRate" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:04041
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:Interests" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Descriptions" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04060
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:LiftingDistraint" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04080
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Size409" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04090
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StopExecutionOverProperty410" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:04100
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:TermsOfLiquidation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:05010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Liquidators" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:05020
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Representative503" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:05030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:ContinuingTradeActivity" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:05040
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StopOfLiquidation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:05050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      
+      
+      
+      
+      
+      
+      
+      
+      <xs:element ref="f:OffshoreIdentifier" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05300
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OffshoreCompany" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05310
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OffshoreTransliteration" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05320
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OffshoreSeat" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05330
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OffshoreSeatForCorrespondence" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:005331
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OffshoreRepresentatives" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05340
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OffshoreWayOfRepresentation" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05350
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OffshoreSpecialConditions" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05360
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:CircumstanceArticle4" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05400
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:ActualOwners" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05500
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:EraseActualOwner" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:05510
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:ResumeOfLiquidation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:05060
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:TransferringTypeOfTradeEnterprise" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:06000
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:TransferringEnterprise" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:06010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:AcquisitionEnterprises" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:06020
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:FormOfTransforming701" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:07010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:TransformingCompanys" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:07020
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:TransformingCompanys2" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:07021
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:Successors703" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:07030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Branches704" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:07040
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StoppingEntry" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:07050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:NumberApplication" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:07060
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:FormOfTransforming801" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:08010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:FormOfTransforming801a" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:08011
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:ReorganizeCoOperatives" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:08020
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:ReorganizeCoOperatives2" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:08021
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element ref="f:Successors803" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:08030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:Branches804" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:08040
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--PROGAMER1-->
+			<xs:element ref="f:OpenProccedings" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09010
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - OpenProccedings: 901-->
+      <xs:element ref="f:OpenProccedingsSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09012
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:OpenProccedingsThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09013
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - OpenProccedings: 901-->
+			<xs:element ref="f:InsolvencyDate" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09020
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--PROGAMER1-->
+      <!--NEW CODE - InsolvencyData: 902-->
+      <xs:element ref="f:InsolvencyData" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09021
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:InsolvencyDataSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09022
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:InsolvencyDataThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09023
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - InsolvencyData: 902-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:DebtorBodies" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09030
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - DebtorBodies: 903-->
+      <xs:element ref="f:DebtorBodiesSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09032
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:DebtorBodiesThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09033
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - DebtorBodies: 903-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:HoldProceedings" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09040
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - HoldProceedings: 904-->
+      <xs:element ref="f:HoldProceedingsSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09042
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:HoldProceedingsThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09043
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - HoldProceedings: 904-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:ReOpenProceedings" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09050
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - ReOpenProceedings: 905-->
+      <xs:element ref="f:ReOpenProceedingsSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09052
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:ReOpenProceedingsThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09053
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - ReOpenProceedings: 905-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:SuspendProceedings" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09060
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - SuspendProceedings: 906-->
+      <xs:element ref="f:SuspendProceedingsSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09062
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:SuspendProceedingsThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09063
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - SuspendProceedings: 906-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:TraverseOfRecoverPlan" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09061
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - TraverseOfRecoverPlan: 906a-->
+      <xs:element ref="f:TraverseOfRecoverPlanSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09064
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:TraverseOfRecoverPlanThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09065
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - TraverseOfRecoverPlan: 906a-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:RestrictDebtorOrderPower" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09070
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - RestrictDebtorOrderPower: 907-->
+      <xs:element ref="f:RestrictDebtorOrderPowerSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09072
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:RestrictDebtorOrderPowerThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09073
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - RestrictDebtorOrderPower: 907-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:GeneralSeizure" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09080
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - GeneralSeizure: 908-->
+      <xs:element ref="f:GeneralSeizureSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09082
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:GeneralSeizureThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09083
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - GeneralSeizure: 908-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:CashIn" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09090
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - CashIn: 909-->
+      <xs:element ref="f:CashInSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09092
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:CashInThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09093
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - CashIn: 909-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:DeclareBankrupt" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09100
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - DeclareBankrupt: 910-->
+      <xs:element ref="f:DeclareBankruptSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09102
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:DeclareBankruptThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09103
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - DeclareBankrupt: 910-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:Reinstatements" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09110
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - Reinstatements: 911-->
+      <xs:element ref="f:ReinstatementsSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09112
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:ReinstatementsThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09113
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - ReinstatementsDisallowPetition: 911-->
+			<xs:element ref="f:ReinstatementsDisallowPetition" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09111
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - ReinstatementsDisallowPetition: 911а-->
+      <xs:element ref="f:ReinstatementsDisallowPetitionSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09114
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:ReinstatementsDisallowPetitionThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09115
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - ReinstatementsDisallowPetition: 911a-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:Trustees" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09120
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--NEW CODE - Trustees: 912-->
+      <xs:element ref="f:TrusteesSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09122
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:TrusteesThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09123
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - Trustees: 912-->
+      <!--PROGAMER1-->
+			<xs:element ref="f:SupervisionBody" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Код на поле:09150
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <!--END NEW CODE - SupervisionBody: 915-->
+      <xs:element ref="f:SupervisionBodyFull" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09151
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:SupervisionBodyFullSecIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09152
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:SupervisionBodyFullThirdIns" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:09153
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--END NEW CODE - SupervisionBody: 915-->
+      
+			<xs:element ref="f:StatementsA" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019A - Актуален учредителен акт
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsB" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019B - Годишен финансов отчет
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsC" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019C - Покана за свикване на общо събрание на акционерите
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsD" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019D - Покана за свикване на общо събрание на облигационерите
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsE" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019E - Покана за записване на нови акции
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsF" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019F - Покана до кредиторите
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsG" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019G - Покана за събрание на кредиторите
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsH" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019H - Съобщение за сключен облигационен заем
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsI" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019I - Предупреждение за изключване на акционер
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsJ" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019J - Решение за намаляване на капитала
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsK" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019K - Решение за увеличаване на капитала
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsL" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019L - Решение за отпадане или ограничаване на предимствата на акционерите
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsM" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019M - Предложение за обратно изкупуване на акциите
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsN" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019N - План за преобразуване
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsO" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            <!--Код на поле:10019O - Доклад на управителния орган-->
+            2
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsP" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019P - Списък на приетите вземания и финансовите отчети
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsQ" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019Q - Съобщение за изготвена сметка за разпределение
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsR" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019R - Молба за възстановяване на права
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsS" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019S - Друг акт
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsT" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019T - Призовка до кредитор със седалище в чужбина без съдебен адрес в страната
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsU" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019U - Определение на съда за одобряване на сметката за разпределение
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsV" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019V - Определение на съда за одобряване на списъка на приетите от синдика вземания
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsW" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019W - Съобщение за датата на провеждане на събранието на кредиторите за приемане на допуснатия за разглеждане план
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsX" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019X - Приемане на плана за оздравяване от събранието на кредиторите
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsY" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019Y - Жалба срещу определение на съда за одобряване на сметката за разпределение
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsZ" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:10019Z - Предложение от миноритарните акционери по чл. 223а, ал. 1 и 2 от Търговския закон
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsAA" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:1001AA - Решение за едновременно увеличаване и намаляване на капитала по чл. 203 от Търговския закон
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsAB" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:1001AB - Съобщение за мястото, където списъкът на приетите вземания ще бъде на разположение за проверка, съгласно чл. 64, ал. 2 от Закона за банковата несъстоятелност
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="f:StatementsAC" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:1001AC - Договор / план за преобразуване
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:StatementsAI" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            Код на поле:1001AI - Доклад на управителния орган за преобразуването
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element ref="f:StatementsAJ" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:1001AJ - Актуален дружествен договор/учредителен акт/устав
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:StatementsAK" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:1001AK - Молба за откриване на производство по несъстоятелност
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:StatementsAL" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:1001AL - Вписване на решение на чуждестранен съд относно образувано производство по несъстоятелност в чужбина
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:StatementsAM" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:1001AM - Друг акт несъстоятелност
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="f:ContestationAct" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Код на поле:X1080
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+		</xs:sequence>
+		<xs:attribute name="SubUIC" type="xs:string" use="required" />
+		<xs:attribute name="SubUICType" type="SubUICTYPE" use="required" />
+	</xs:complexType>
+	<xs:element name="Deed" type="DeedType">
+	</xs:element>
+
+</xs:schema>
