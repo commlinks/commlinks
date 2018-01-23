@@ -1,9 +1,13 @@
 require('file?name=[name].[ext]!../node_modules/neo4j-driver/lib/browser/neo4j-web.min.js');
-var Person = require('./models/Person')
+var Person = require('./models/Person');
 var _ = require('lodash');
 
+$.getJSON('./config.json', function(data) {         
+  config = data;
+});
+
 var neo4j = window.neo4j.v1;
-var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "neo4j"));
+var driver = neo4j.driver("bolt://" + config.DB_HOST, neo4j.auth.basic(config.DB_USER, config.DB_PASSWD));
 
 function getCompanyGraph(queryString) {
   var session = driver.session();

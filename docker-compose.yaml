@@ -8,11 +8,11 @@ services:
       - 7687:7687
     volumes:
       - ./neo4j-data:/data
-  #commerciallinks:
+  #commlinks:
   #  build:
   #    context: .
   #    dockerfile: Dockerfile
-  #  image: commerciallinks:dev
+  #  image: commlinks:dev
   #  ports:
   #    - 80:80
   #    - 443:443

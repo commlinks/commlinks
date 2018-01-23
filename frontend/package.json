@@ -1,7 +1,7 @@
 {
-  "name": "movies-neo4j-javascript-driver",
+  "name": "commercial-links-frontend",
   "version": "0.0.1",
-  "description": "Demo application using Neo4j Driver for Javascript",
+  "description": "CommercialLinks frontend",
   "repository": "",
   "license": "PRIVATE",
   "dependencies": {

@@ -10,4 +10,6 @@ build
 
 # misc
 .DS_Store
-npm-debug.log
+npm-debug.
+package-lock.json
+config.json
