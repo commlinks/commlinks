@@ -186,15 +186,16 @@ public class BrraLinks {
 
         List<Path> files = Files.walk(Paths.get(commercialRegisterFilesDir))
                 .filter(Files::isRegularFile)
-                .sorted((a, b) -> LocalDate.parse(a.getFileName().toString().replace(".xml", ""), DF)
-                        .compareTo(LocalDate.parse(b.getFileName().toString().replace(".xml", ""), DF)))
+                .sorted((a, b) -> LocalDate.parse(a.getFileName().toString().replace("_1", "").replace(".xml", ""), DF)
+                        .compareTo(LocalDate.parse(b.getFileName().toString().replace("_1", "").replace(".xml", ""), DF)))
                 .collect(Collectors.toList());
         
-        System.out.println(files);
+        //System.out.println(files);
         int total = files.size();
         int i = 0;
         for (Path file : files) {
             i++;
+            System.out.printf("Processing file %d of %d: %s\n", i, total, file);
             double percentage = (double) i / total;
             logger.info("Reading " + file + " (" + percentage + ")");
             
