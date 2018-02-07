@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>bg.bozho</groupId>
   <artifactId>brra-links</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <build>
     <plugins>
       <plugin>
@@ -46,5 +46,16 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <releases />
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>neo4j-release-repository</id>
+      <name>Neo4j Maven 2 release repository</name>
+      <url>http://m2.neo4j.org/content/repositories/releases/</url>
+    </repository>
+  </repositories>
 </project>
 
