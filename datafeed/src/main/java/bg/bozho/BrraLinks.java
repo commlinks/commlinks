@@ -528,8 +528,24 @@ public class BrraLinks {
 
     private static String getAddressHash(AddressType address) {
         return BaseEncoding.base64().encode(
-                Hashing.md5().hashString(reflectionToString(address), Charsets.UTF_8).asBytes());
+                Hashing.md5().hashString(buildAddressHash(address), Charsets.UTF_8).asBytes());
     }
+
+    private static String buildAddressHash(AddressType address) {
+        //street=бул. Васил Левски,streetNumber=68,block=0,entrance=А,floor=4,apartment=49
+        //street=бул. ВАСИЛ ЛЕВСКИ,streetNumber=68,block=,entrance=1,floor=4,apartment=49
+        String addr = "";
+        addr += address.getSettlement().toLowerCase().replaceAll("\\s+","").replaceAll("\\W+","");
+        addr += address.getStreet().toLowerCase().replaceAll("\\s+","").replaceAll("\\W+","");
+        addr += address.getStreetNumber().toLowerCase().replaceAll("\\s+","");
+        addr += address.getBlock().toLowerCase().replaceAll("\\s+","");
+        addr += address.getEntrance().toLowerCase().replaceAll("\\s+","");
+        addr += address.getFloor().toLowerCase().replaceAll("\\s+","");
+        addr += address.getApartment().toLowerCase().replaceAll("\\s+","");
+
+        return addr;
+    }
+
     private static String reflectionToString(AddressType address) {
         return ToStringBuilder.reflectionToString(address, NO_PREFIX_STYLE);
     }
